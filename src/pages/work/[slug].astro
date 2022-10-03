@@ -1,0 +1,44 @@
+---
+import type { paintingType } from "@interfaces/painting";
+import { client } from "../../sanity";
+import Layout from "src/layouts/Layout.astro";
+import Slug from "@components/Slug.svelte";
+
+export async function getStaticPaths() {
+  const query = `*[_type == 'painting']
+{
+  slug
+}`;  
+
+const paintings:Array<paintingType> = await client
+  .fetch(query)
+
+  return paintings.map((painting) => {
+    return {
+      params: {slug: painting.slug.current}
+    }
+  })
+}
+
+const { slug } = Astro.params;
+
+const filter = `*[_type == 'painting' && slug.current == $slug][0]`;
+const projection = `{
+        title,
+        slug,
+        mainImage{
+        asset->{
+            url
+          }
+        },
+        images,
+        body,
+    }`;
+const query = filter + projection;
+
+const content:paintingType = await client.fetch(query, { slug });
+---
+
+<Layout title={`Ida Vikfors | ${content.title}`} page={content.title}>
+  <Slug content={content} client:load />
+</Layout>

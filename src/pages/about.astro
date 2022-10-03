@@ -1,0 +1,106 @@
+---
+import type { aboutType } from '@interfaces/about'; 
+import type { exhibitionType } from '@interfaces/exhibition';
+import type { availableArtType } from '@interfaces/availableArt'
+import { client } from "../sanity";
+import Layout from "../layouts/Layout.astro";
+import AboutSection from "@components/AboutSection.svelte";
+import ExhibitionSection from "@components/ExhibitionSection.svelte";
+import ArtleSection from "@components/ArtSection.svelte";
+
+const aboutQuery = `*[_type == 'about']
+  {
+    image {
+        asset -> {
+          url,
+          lqip
+        },
+        hotspot
+      },
+      alt,
+      italic,
+      paragraph,
+      sort
+    }`;
+
+const exhibitionsQuery = `*[_type == 'exhibition']
+    {
+      place,
+      exhibitionName,
+      displayDate,
+      date
+    }`;
+
+const originalArtQuery = `*[_type == 'originalArt']
+    {
+      text,
+      link,
+      sort
+    }`;
+
+const artPrintsQuery = `*[_type == 'artPrints']
+    {
+      text,
+      link,
+      sort
+    }`;
+
+const aboutData: Array<aboutType> = await client
+    .fetch(aboutQuery)
+    .then((res) => res.sort((a:aboutType, b:aboutType) => a.sort - b.sort));
+
+const exhibitionData: Array<exhibitionType> = await client
+    .fetch(exhibitionsQuery)
+    .then((res) => res.sort((a:exhibitionType, b:exhibitionType) => Date.parse(b.date) - Date.parse(a.date)));
+
+const originalArtData: Array<availableArtType> = await client
+    .fetch(originalArtQuery)
+    .then((res) => res.sort((a:availableArtType, b:availableArtType) => a.sort - b.sort));
+
+const artPrintsData: Array<availableArtType> = await client
+    .fetch(artPrintsQuery)
+    .then((res) => res.sort((a:availableArtType, b:availableArtType) => a.sort - b.sort));
+---
+
+<Layout title="Ida Vikfors | Artist" page="about">
+    {aboutData.map((data:aboutType) => <AboutSection content={data} />)}
+    <exibit class="about-layout m-b-onePointFive">
+        <p class="subtitel [ p-b-one font-inter ]">Exhibitions</p>
+        {
+            exhibitionData.map((exhibition:exhibitionType) => (
+                <ExhibitionSection content={exhibition} />
+            ))
+        }
+    </exibit>
+
+    <arts class="about-layout">
+        <p class="subtitel [ p-b-one font-inter ]">Avaliable work</p>
+        <p>Original art :</p>
+        <originalArt class="about-layout p-b-one">
+            {
+                originalArtData.map((originalArt) => (
+                    <ArtleSection content={originalArt} />
+                ))
+            }
+        </originalArt>
+        <p>Art prints :</p>
+        <artPrints class="about-layout m-b-five">
+            {
+                artPrintsData.map((artPrints) => (
+                    <ArtleSection content={artPrints} />
+                ))
+            }
+        </artPrints>
+    </arts>
+</Layout>
+
+<style>
+    .about-layout {
+        display: flex;
+        flex-direction: column;
+    }
+    .subtitel {
+        font-size: 0.6rem;
+        text-transform: uppercase;
+    }
+</style>

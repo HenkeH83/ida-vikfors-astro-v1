@@ -1,0 +1,71 @@
+---
+  import InstagramSVG from "./InstagramSVG.svelte";
+  import MailSVG from "./MailSVG.svelte";
+  const date = new Date().getFullYear().toString().toUpperCase();
+---
+
+<footer>
+  <copyright class="footer-content">
+    <!-- <copyright-container> -->
+    <p id="copy">
+      &copy;Ida Vikfors {date}
+    </p>
+  </copyright>
+  <social class="footer-content">
+    <InstagramSVG />
+    <MailSVG />
+  </social>
+</footer>
+
+<style>
+  footer {
+    grid-row: 3;
+    background-color: transparent;
+    width: 100%;
+    height: 4rem;
+    display: grid;
+    grid-template-areas:
+      ". . . . . ."
+      ". start . . end ."
+      ". . . . . .";
+  }
+  .footer-content {
+    line-height: unset;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: flex-end;
+  }
+  copyright {
+    grid-area: start;
+    justify-content: start;
+    padding-bottom: 0.1rem;
+  }
+  #copy {
+    font-family: CGarmond-light;
+    /* text-transform: uppercase; */
+    /* font-size: 0.83rem; */
+    /* margin-left: 0.3rem; */
+  }
+  social {
+    grid-area: end;
+    justify-content: flex-end;
+  }
+  @media only screen and (min-width: 480px) {
+    footer {
+      grid-column: 2;
+      grid-template-areas:
+        ". . . . . ."
+        "start . . . . end"
+        ". . . . . .";
+    }
+    copyright {
+      /* -ms-grid-row: 2;
+      -ms-grid-column: 1; */
+    }
+    social {
+      /* -ms-grid-row: 2;
+      -ms-grid-column: 6; */
+    }
+  }
+</style>

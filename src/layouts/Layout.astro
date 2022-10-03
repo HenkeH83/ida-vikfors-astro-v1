@@ -1,0 +1,137 @@
+---
+import Navbar from "./components/navbar.svelte";
+import Footer from "./components/footer.astro";
+import Window from "./components/window.svelte"
+
+export interface Props {
+	title: string;
+	page: string;
+}
+
+const {title, page } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link
+			rel="icon"
+			type="image/png"
+			href="/favicon-192.png"
+			sizes="192x192"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			href="/favicon-128.png"
+			sizes="128x128"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			href="/favicon-32.png"
+			sizes="32x32"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			href="/favicon-16.png"
+			sizes="16x16"
+		/>
+		<link
+			rel="preload"
+			href="/fonts/Inter/static/Inter-Regular.ttf"
+			type="font/ttf"
+			as="font"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="preload"
+			href="/fonts/Cormorant_Garamond/CormorantGaramond-Bold.ttf"
+			type="font/ttf"
+			as="font"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="preload"
+			href="/fonts/Cormorant_Garamond/CormorantGaramond-Medium.ttf"
+			type="font/ttf"
+			as="font"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="preload"
+			href="/fonts/Cormorant_Garamond/CormorantGaramond-Light.ttf"
+			type="font/ttf"
+			as="font"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="preload"
+			href="/fonts/Cormorant_Garamond/CormorantGaramond-MediumItalic.ttf"
+			type="font/ttf"
+			as="font"
+			crossorigin="anonymous"
+		/>
+		<meta name="generator" content={Astro.generator} />
+		<meta property="og:title" content="Ida Vikfors | Minimalist Artist" />
+		<meta
+			name="description"
+			content="Ida Vikfors has an expression in her art that is truly unique. Welcome to her website! Here you can see her art, find exhibitions, or order a painting of your own."
+		/>
+		<meta
+			property="og:description"
+			content="Ida Vikfors has an expression in her art that is truly unique. Welcome to her website! Here you can see her art, find exhibitions, or order a painting of your own."
+		/>
+		<title>{title}</title>
+	</head>
+	<body class={page === "home" ? "picture-background" : ""}>
+		<Window client:load />
+		<main-container>
+			<Navbar page={page} client:load />
+			<main-content>
+				<slot />
+			</main-content>
+			<Footer />
+		</main-container>
+
+		<style>
+			@import "../styles/global.postcss";
+			
+			.picture-background {
+				background-image: url("/images/hero/768x1216.jpg");
+				background-position: center center;
+				background-size: cover;
+				background-repeat: no-repeat;
+			}
+
+			@media only screen and (-webkit-device-pixel-ratio: 2) {
+				.picture-background {
+					background-image: url("/images/hero/1440x2280.jpg");
+				}
+			}
+			@media only screen and (min-width: 768px) {
+				.picture-background {
+					background-image: url("/images/hero/1068x824.jpg");
+				}
+			}
+			@media only screen and (min-width: 768px) and (-webkit-device-pixel-ratio: 2) {
+				.picture-background {
+					background-image: url("/images/hero/2136x1648.jpg");
+				}
+			}
+			@media only screen and (min-width: 1024px) {
+				.picture-background {
+					background-image: url("/images/hero/1440x1111.jpg");
+				}
+			}
+			@media only screen and (min-width: 1024px) and (-webkit-device-pixel-ratio: 2) {
+				.picture-background {
+					background-image: url("/images/hero/2889x2230.jpg");
+				}
+			}
+		</style>
+	</body>
+</html>
