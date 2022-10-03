@@ -75,7 +75,7 @@
   <button class="modal-btn" id="exit" type="button" on:click={exit}>x</button>
 </div>
 
-<style>
+<style lang="postcss">
   .swipe-holder {
     height: 100vh;
     position: relative;

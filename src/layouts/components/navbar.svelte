@@ -58,7 +58,7 @@
   {/if}
 </nav>
 
-<style>
+<style lang="postcss">
   .header {
     grid-row: 1;
     display: grid;

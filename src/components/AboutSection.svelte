@@ -34,7 +34,7 @@
     </div>
 </div>
 
-<style>
+<style lang="postcss">
     .noParagraph {
         display: none;
     }

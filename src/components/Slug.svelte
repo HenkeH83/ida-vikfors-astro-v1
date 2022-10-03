@@ -1,6 +1,6 @@
 <script lang="ts">
     import type { Image } from "@sanity/types/dist/dts";
-    import type { paintingType } from "../interfaces/painting";
+    import type { paintingType } from "@interfaces/painting";
     import { onDestroy } from "svelte";
     import { fade } from "svelte/transition";
     import { windowWidth } from "../store";
@@ -10,12 +10,12 @@
 
     export let content:paintingType;
 
-    let swipeSet:Array<Image>;
-    let galleryIndex:Number;
-    let showSwipe:Boolean = false;
+    let swipeSet?:Array<Image> = null;
+    let galleryIndex?:Number = null;
+    let showSwipe?:Boolean = false;
 
     function showGallery(event) {
-        if ($windowWidth < 768) return;
+        if ($windowWidth && $windowWidth < 768) return;
         swipeSet = event.detail.images;
         galleryIndex = event.detail.index;
         showSwipe = true;
@@ -65,7 +65,7 @@
     </div>
 </div>
 
-<style>
+<style lang="postcss">
     .modal {
         position: fixed;
         z-index: 2;

@@ -6,7 +6,7 @@
   <slot />
 </div>
 
-<style>
+<style lang="postcss">
   .swipeable-item {
     position: absolute;
     top: 0;

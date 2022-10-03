@@ -8,7 +8,7 @@
 <p><i>{content.exhibitionName}</i></p>
 <p class="p-b-one">{content.displayDate}</p>
 
-<style>
+<style lang="postcss">
     .exhibition-titel {
         text-transform: uppercase;
     }

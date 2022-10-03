@@ -58,7 +58,7 @@
   {/if}
 </div>
 
-<style>
+<style lang="postcss">
   .img-btn {
     padding: 0;
     background-color: transparent;
