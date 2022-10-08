@@ -1,4 +1,5 @@
 ---
+import "../styles/global.postcss";
 import Navbar from "./components/navbar.svelte";
 import Footer from "./components/footer.astro";
 import Window from "./components/window.svelte"
@@ -98,8 +99,6 @@ const {title, page } = Astro.props;
 		</main-container>
 
 		<style>
-			@import "../styles/global.postcss";
-			
 			.picture-background {
 				background-image: url("/images/hero/768x1216.jpg");
 				background-position: center center;

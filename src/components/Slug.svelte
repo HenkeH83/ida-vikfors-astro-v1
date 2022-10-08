@@ -10,11 +10,11 @@
 
     export let content:paintingType;
 
-    let swipeSet?:Array<Image> = null;
-    let galleryIndex?:Number = null;
-    let showSwipe?:Boolean = false;
+    let swipeSet:Array<Image> | null = null;
+    let galleryIndex:Number | null = null;
+    let showSwipe:Boolean | null = false;
 
-    function showGallery(event) {
+    function showGallery(event:any) {
         if ($windowWidth && $windowWidth < 768) return;
         swipeSet = event.detail.images;
         galleryIndex = event.detail.index;
@@ -37,7 +37,7 @@
 {/if}
 <div class="card-detail">
     <div class="card-layout reversed">
-        {#if $windowWidth >= 768}
+        {#if $windowWidth && $windowWidth >= 768}
             <img
                 src={urlFor(content.mainImage)
                     .width(420)

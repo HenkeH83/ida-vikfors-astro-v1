@@ -8,11 +8,11 @@
 
   const dispatch = createEventDispatcher();
 
-  export let images:Array<Image>, index:number;
+  export let images:Array<Image> | null, index:Number | null;
   //TODO: fixa type
   let SwipeComp:any;
-  $: moreToLeft = index <= 0 ? false : true;
-  $: moreToRight = index >= images.length - 1 ? false : true;
+  $: moreToLeft = (index && index <= 0) ? false : true;
+  $: moreToRight = (index && images && index >= images.length - 1) ? false : true;
 
   const swipeConfig = {
     autoplay: false,
