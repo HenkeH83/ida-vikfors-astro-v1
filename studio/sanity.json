@@ -1,7 +1,8 @@
 {
   "root": true,
   "project": {
-    "name": "Ida-vikfors-site"
+    "name": "Ida-vikfors-site",
+    "basePath": "/studio"
   },
   "api": {
     "projectId": "ptqfikup",
