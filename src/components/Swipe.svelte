@@ -8,7 +8,7 @@
 
   const dispatch = createEventDispatcher();
 
-  export let images:Array<Image> | null, index:Number | null;
+  export let images:Array<Image>, index:number;
   //TODO: fixa type
   let SwipeComp:any;
   $: moreToLeft = (index && index <= 0) ? false : true;

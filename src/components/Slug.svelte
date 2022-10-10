@@ -11,8 +11,8 @@
     export let content:paintingType;
 
     let swipeSet:Array<Image> | null = null;
-    let galleryIndex:Number | null = null;
-    let showSwipe:Boolean | null = false;
+    let galleryIndex:number | null = null;
+    let showSwipe:boolean | null = false;
 
     function showGallery(event:any) {
         if ($windowWidth && $windowWidth < 768) return;

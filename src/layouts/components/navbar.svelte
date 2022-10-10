@@ -3,7 +3,7 @@
   import { clickOutside } from "../../utility";
   import { windowWidth } from "../../store"
 
-  export let page:String;
+  export let page:string;
  
   let isDesktop:boolean = ($windowWidth === null || $windowWidth >= 799) ? true : false;
   let openBurger:boolean = false;
