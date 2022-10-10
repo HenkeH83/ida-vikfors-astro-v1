@@ -5,9 +5,10 @@
 
   export let page:string;
  
-  let isDesktop:boolean = ($windowWidth === null || $windowWidth >= 799) ? true : false;
   let openBurger:boolean = false;
 
+  $: isDesktop = ($windowWidth === null || $windowWidth >= 799) ? true : false;
+  
   const closeBurger = () => {
     if (isDesktop) return;
     openBurger = false;
