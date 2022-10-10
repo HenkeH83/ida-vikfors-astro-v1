@@ -80,11 +80,12 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
-    }
-    .btn-wrapper > a {
-        height: fit-content;
-        transition: all 1s;
-        font-size: 0.6rem;
-        letter-spacing: 0.7px;
+
+        & > a {
+            height: fit-content;
+            transition: all 1s;
+            font-size: 0.6rem;
+            letter-spacing: 0.7px;
+        }
     }
 </style>

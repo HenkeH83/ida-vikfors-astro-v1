@@ -3,6 +3,18 @@ import Layout from "src/layouts/Layout.astro";
 ---
 
 <Layout title="Ida Vikfors | page not found" page="404">
-    <h1>Page not found</h1>
-    <h4>Sorry, this page does not exist, try navigating to anotherone.</h4>
+    <div class="[ flex-center ]">
+        <h1 class="[ font-inter ]">PAGE NOT FOUND</h1>
+        <h4>Sorry, this page does not exist, please navigating to anotherone.</h4>
+    </div>
 </Layout>
+
+<style>
+    div {
+        flex-direction: column;
+
+        & h4 {
+            font-family: CGarmond-medium-italic;
+        }
+    }
+</style>

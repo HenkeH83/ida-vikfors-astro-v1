@@ -1,6 +1,6 @@
 ---
-import type { paintingType } from '@interfaces/painting'
-import Layout from '../../layouts/Layout.astro';
+import type { paintingType } from "@interfaces/painting";
+import Layout from "../../layouts/Layout.astro";
 import PortfolioItem from "@components/PortfolioItem.svelte";
 
 import { client } from "../../sanity";
@@ -20,28 +20,32 @@ const query = `*[_type == 'painting']
   },
   alt,
   sort
-}`;  
+}`;
 
-const paintings:Array<paintingType> = await client
-      .fetch(query)
-      .then((res) => res.sort((a:paintingType, b:paintingType) => a.sort - b.sort));
+const paintings: Array<paintingType> = await client
+  .fetch(query)
+  .then((res) =>
+    res.sort((a: paintingType, b: paintingType) => a.sort - b.sort)
+  );
 ---
 
 <Layout title="Ida Vikfors | Art" page="work">
-    <portfolio-page>
+  <portfolio-page>
     <ul class="posts">
-      {paintings.map((painting:paintingType) => (
+      {
+        paintings.map((painting: paintingType) => (
           <PortfolioItem painting={painting} client:load />
-      ))}
+        ))
+      }
     </ul>
   </portfolio-page>
 </Layout>
 
 <style>
-    @media only screen and (min-width: 768px) {
-      portfolio-page {
-        display: inline-block;
-        margin-top: 7rem;
-      }
+  @media only screen and (min-width: 768px) {
+    portfolio-page {
+      display: inline-block;
+      margin-top: 7rem;
     }
-  </style>
+  }
+</style>

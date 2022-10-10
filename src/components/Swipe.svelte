@@ -91,7 +91,6 @@
     height: 100%;
     width: auto;
   }
-
   .modal-btn {
     font-size: 2rem;
     font-weight: 200;
