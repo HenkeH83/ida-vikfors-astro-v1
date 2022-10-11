@@ -34,7 +34,9 @@ const paintings: Array<paintingType> = await client
     <ul class="posts">
       {
         paintings.map((painting: paintingType) => (
-          <PortfolioItem painting={painting} client:load />
+          <li>
+            <PortfolioItem painting={painting} client:load />
+          </li>
         ))
       }
     </ul>

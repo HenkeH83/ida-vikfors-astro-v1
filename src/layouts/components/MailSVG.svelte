@@ -1,6 +1,6 @@
 <!-- width="9mm"
 height="5mm" -->
-<a href="mailto:info@idavikfors.com">
+<a href="mailto:info@idavikfors.com" aria-label="Send an e-mail to Ida Vikfors at info@idavikfors.com">
   <svg
     class="svg-icon"
     viewBox="0 0 100 70">
