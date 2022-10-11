@@ -10,9 +10,9 @@
 
     export let content:paintingType;
 
-    let swipeSet:Array<Image> | null = null;
-    let galleryIndex:Number | null = null;
-    let showSwipe:Boolean | null = false;
+    let swipeSet:Array<Image>;
+    let galleryIndex:number;
+    let showSwipe:boolean= false;
 
     function showGallery(event:any) {
         if ($windowWidth && $windowWidth < 768) return;
@@ -23,11 +23,11 @@
     function closeModal() {
         showSwipe = false;
     }
-    onDestroy(() => {
-        galleryIndex = null;
-        swipeSet = null;
-        showSwipe = false;
-    });
+    // onDestroy(() => {
+    //     galleryIndex = null;
+    //     swipeSet = null;
+    //     showSwipe = false;
+    // });
 </script>
 
 {#if showSwipe}
@@ -40,9 +40,9 @@
         {#if $windowWidth && $windowWidth >= 768}
             <img
                 src={urlFor(content.mainImage)
-                    .width(420)
-                    .height(560)
-                    .quality(80)
+                    .width(800)
+                    // .height(560)
+                    .quality(90)
                     .auto("format")
                     .url()}
                 alt={content.alt}
@@ -80,11 +80,12 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
-    }
-    .btn-wrapper > a {
-        height: fit-content;
-        transition: all 1s;
-        font-size: 0.6rem;
-        letter-spacing: 0.7px;
+
+        & > a {
+            height: fit-content;
+            transition: all 1s;
+            font-size: 0.6rem;
+            letter-spacing: 0.7px;
+        }
     }
 </style>

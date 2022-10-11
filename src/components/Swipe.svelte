@@ -8,7 +8,7 @@
 
   const dispatch = createEventDispatcher();
 
-  export let images:Array<Image> | null, index:Number | null;
+  export let images:Array<Image>, index:number;
   //TODO: fixa type
   let SwipeComp:any;
   $: moreToLeft = (index && index <= 0) ? false : true;
@@ -48,8 +48,8 @@
         <div class="img-holder">
           <img
             src={urlFor(image)
-              .width(950)
-              .height(1498)
+              .width(1200)
+              // .height(1498)
               .quality(90)
               .auto("format")
               .url()}
@@ -91,7 +91,6 @@
     height: 100%;
     width: auto;
   }
-
   .modal-btn {
     font-size: 2rem;
     font-weight: 200;
