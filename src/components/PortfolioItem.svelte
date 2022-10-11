@@ -10,7 +10,7 @@
 </script>
 
 <div class="portfolio-wrapper">
-  <li class="card-display">
+  <div class="card-display">
     <a
       href="/work/{painting.slug.current}"
       aria-label="Continue to {painting.slug.current} page"
@@ -45,5 +45,5 @@
         />
       {/if}
     </a>
-  </li>
+  </div>
 </div>
