@@ -27,9 +27,9 @@
         in:fade
         class="image"
         src={urlFor(img)
-          .width(374)
-          .height(498)
-          .quality(80)
+          .width(800)
+          // .height(498)
+          .quality(90)
           .auto("format")
           .url()}
         alt="Painting by Ida Vikfors"
@@ -44,9 +44,9 @@
           in:fade
           class="image"
           src={urlFor(img)
-            .width(374)
-            .height(498)
-            .quality(80)
+            .width(800)
+            // .height(498)
+            .quality(90)
             .auto("format")
             .url()}
           alt="Painting by Ida Vikfors"

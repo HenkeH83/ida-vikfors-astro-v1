@@ -13,9 +13,9 @@
     <img
         in:fade
         src={urlFor(content.image)
-            .width(420)
-            .height(560)
-            .quality(80)
+            .width(800)
+            // .height(560)
+            .quality(90)
             .auto("format")
             .url()}
         alt={content.alt}

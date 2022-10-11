@@ -48,8 +48,8 @@
         <div class="img-holder">
           <img
             src={urlFor(image)
-              .width(950)
-              .height(1498)
+              .width(1200)
+              // .height(1498)
               .quality(90)
               .auto("format")
               .url()}

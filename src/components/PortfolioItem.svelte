@@ -20,9 +20,9 @@
         <img
           in:fade
           src={urlFor(painting.hoverImg)
-            .width(367)
-            .height(489)
-            .quality(80)
+            .width(800)
+            // .height(489)
+            .quality(90)
             .auto("format")
             .url()}
           alt={painting.alt}
@@ -33,9 +33,9 @@
         <img
           in:fade
           src={urlFor(painting.mainImage)
-            .width(367)
-            .height(489)
-            .quality(80)
+            .width(800)
+            // .height(489)
+            .quality(90)
             .auto("format")
             .url()}
           alt={painting.alt}
