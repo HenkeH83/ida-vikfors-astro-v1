@@ -13,6 +13,7 @@
   <li class="card-display">
     <a
       href="/work/{painting.slug.current}"
+      aria-label="Continue to {painting.slug.current} page"
       on:mouseenter={() => hovering = true}
       on:mouseleave={() => hovering = false}
     >

@@ -1,4 +1,4 @@
-<a href="http://www.instagram.com/idavikfors" target="_blank">
+<a href="http://www.instagram.com/idavikfors" aria-label="Ida Vikfors instagram account" target="_blank">
   <svg class="svg-icon" viewBox="0 0 194 194">
     <path
       id="path16"

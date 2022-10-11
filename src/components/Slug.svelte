@@ -61,7 +61,7 @@
         swipeImages={content.images}
     />
     <div class="btn-wrapper [ font-inter ] ">
-        <a href="/work"> <i> back to work </i> </a>
+        <a aria-label="Go back to work page" href="/work"> <i> back to work </i> </a>
     </div>
 </div>
 

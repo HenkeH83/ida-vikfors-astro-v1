@@ -33,18 +33,21 @@
         on:click={closeBurger}
         class:active={page === 'home' ? true : false}
         in:fade={{ duration: 1300 }}
+        aria-label="To landing page"
         href="/">HOME</a
       >
       <a
         on:click={closeBurger}
         class:active={page === 'work' ? true : false}
         in:fade={{ duration: 1300 }}
+        aria-label="Art gallery"
         href="/work">WORK</a
       >
       <a
         on:click={closeBurger}
         class:active={page === 'about' ? true : false}
         in:fade={{ duration: 1300 }}
+        aria-label="Page about Ida Vikfors and her art"
         href="/about">ABOUT</a
       >
     {/if}
