@@ -109,6 +109,7 @@
   .pages.openBurger {
     max-height: 10rem;
     padding-bottom: 2rem;
+    z-index: 1;
   }
   .pages.openBurger.isHome {
     background-color: transparent;
